@@ -1,0 +1,15 @@
+#https://www.hackerrank.com/challenges/sparse-arrays
+input_strings=[]
+query_strings=[]
+
+n=int(input())
+for i in range(0,n):
+    input_strings.append(input().strip())
+q=int(input())
+for i in range(0,q):
+    query_strings.append(input().strip())
+    
+for item in query_strings:
+    print(input_strings.count(item))
+        
+        
