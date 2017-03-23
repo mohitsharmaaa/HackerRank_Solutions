@@ -1,0 +1,32 @@
+#https://www.hackerrank.com/challenges/dynamic-array
+# problem link
+
+
+def query1(seqList,x,value):
+    global lastAns
+    index=((x ^ lastAns)% number_of_list)
+    seqList[index].append(value)
+    
+def query2(seqList,x,value):    
+    global lastAns
+    index=((x ^ lastAns)%number_of_list)
+    size=len(seqList[index])
+    lastAns=seqList[index][value%size]
+    print(lastAns)
+
+#program starts from here
+number_of_list,number_of_queries=input().strip().split()
+number_of_list,number_of_queries=[int(number_of_list),int(number_of_queries)]
+lastAns=0
+seqList= [[] for i in range(0,number_of_list)]
+
+
+for i in range(0,number_of_queries):
+    querytype,x,value=input().strip().split()
+    querytype,x,value=[int(querytype),int(x),int(value)]
+    if(querytype==1):
+        query1(seqList,x,value)
+    if(querytype==2):
+        query2(seqList,x,value)
+    
+    
