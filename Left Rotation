@@ -1,0 +1,14 @@
+#https://www.hackerrank.com/challenges/array-left-rotation
+
+size,rotation=input().strip().split()
+size,rotation=[int(size),int(rotation)]
+arr=[int(x) for x in input().strip().split()]
+for i in range(0,rotation):
+    temp=arr[0]
+    del arr[0]
+    arr.append(temp)
+for i in range(0,len(arr)):
+    if(i==len(arr)-1):
+        print(arr[i])
+    else:    
+        print(arr[i],end=" ")
