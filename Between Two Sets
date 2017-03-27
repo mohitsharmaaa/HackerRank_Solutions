@@ -1,0 +1,29 @@
+https://www.hackerrank.com/challenges/between-two-sets
+#!/bin/python3
+
+import sys
+
+def gcd(x,y):
+    while(y!=0):
+        (x,y)=(y,x%y)
+    return x    
+n,m = input().strip().split(' ')
+n,m = [int(n),int(m)]
+a = [int(a_temp) for a_temp in input().strip().split(' ')]
+b = [int(b_temp) for b_temp in input().strip().split(' ')]
+
+gcdOfB=b[0]
+lcmOfA=a[0]
+for i in range(0,len(b)-1):
+    b[i+1]=gcd(b[i],b[i+1])
+gcdOfB=(b[len(b)-1])
+
+for i in range(0,len(a)-1):
+    a[i+1]=a[i]*a[i+1]//gcd(a[i],a[i+1])
+lcmOfA=(a[len(a)-1])
+
+count=0
+for i in range(lcmOfA,gcdOfB+1):
+    if(gcdOfB%i==0 and i%lcmOfA==0):
+        count+=1
+print(count)        
